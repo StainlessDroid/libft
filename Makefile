@@ -6,7 +6,7 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 20:46:54 by mpascual          #+#    #+#              #
-#    Updated: 2020/02/20 19:53:32 by mpascual         ###   ########.fr        #
+#    Updated: 2020/09/15 18:53:15 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	  ft_strmapi.c ft_strncmp.c\
 	  ft_strnstr.c ft_strrchr.c \
 	  ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
-	  ft_putnbr.c ft_putchar.c
+	  ft_putnbr.c ft_putchar.c ft_putstr.c
+	  ft_itoa.c ft_nbrlen.c
 
 
 BONUS = $(SRC) *_bonus.c
