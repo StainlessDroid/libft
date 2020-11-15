@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 19:54:54 by manu              #+#    #+#             */
-/*   Updated: 2020/02/16 19:56:20 by manu             ###   ########.fr       */
+/*   Updated: 2020/11/16 00:07:19 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** This putnbr returns the number of characters printed (usefull for printf)
-*/
-
-int     ft_putnbr(int nb)
+int		ft_putnbr(int nb)
 {
 	long	int		num;
 	unsigned int	len;
@@ -32,7 +28,7 @@ int     ft_putnbr(int nb)
 	if (num >= 10)
 	{
 		ft_putnbr(num / 10);
-	    ft_putchar(num % 10 + '0');
+		ft_putchar(num % 10 + '0');
 		len++;
 	}
 	else
@@ -40,5 +36,5 @@ int     ft_putnbr(int nb)
 		ft_putchar(num + '0');
 		len++;
 	}
-    return (len);
+	return (len);
 }
