@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2020/03/08 17:37:34 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 17:43:57 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef enum
 {
 	FALSE, TRUE
-} 				bool;
+}	t_bool;
 
 typedef	struct	s_list
 {
@@ -74,7 +74,7 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 				void (*del)(void *));
 char			*ft_strcpy(char *dst, const char *src);
-int				ft_putnbr(int nb);
 int				ft_putchar(char c);
+unsigned int	ft_nbrlen(long nb, int base_len);
 
 #endif
