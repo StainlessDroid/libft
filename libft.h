@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 17:43:57 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/17 20:34:18 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <ctype.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
 typedef enum
 {
@@ -76,5 +80,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 char			*ft_strcpy(char *dst, const char *src);
 int				ft_putchar(char c);
 unsigned int	ft_nbrlen(long nb, int base_len);
+int				get_next_line(const int fd, char **line);
 
 #endif
