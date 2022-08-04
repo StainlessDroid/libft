@@ -6,13 +6,13 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:31:33 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/22 18:05:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:17:02 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	l;
 

@@ -6,16 +6,16 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:45:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 17:51:53 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:45:32 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_strrev(char *s)
+static void	ft_strrev(char *s)
 {
-	char *s_end;
-	char c;
+	char	*s_end;
+	char	c;
 
 	s_end = s + ft_strlen(s) - 1;
 	while (s < s_end)
@@ -26,7 +26,7 @@ static void		ft_strrev(char *s)
 	}
 }
 
-char			*ft_itoa(int nbr)
+char	*ft_itoa(int nbr)
 {
 	char			*str;
 	unsigned int	n_digits;

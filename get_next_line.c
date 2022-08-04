@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:55:42 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/17 20:38:34 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:05:43 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_strdel(char **str)
+void	ft_strdel(char **str)
 {
 	if (str != NULL && *str != NULL)
 	{
@@ -21,7 +21,7 @@ void			ft_strdel(char **str)
 	}
 }
 
-int				ft_putline(int fd, char **s, char **line)
+int	ft_putline(int fd, char **s, char **line)
 {
 	int		size;
 	char	*tmp;
@@ -36,7 +36,7 @@ int				ft_putline(int fd, char **s, char **line)
 	return (1);
 }
 
-int				output(int ret, int fd, char **s, char **line)
+int	output(int ret, int fd, char **s, char **line)
 {
 	if (ret < 0)
 		return (-1);
@@ -56,7 +56,7 @@ int				output(int ret, int fd, char **s, char **line)
 	}
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int				ret;
 	static char		*s[4096];

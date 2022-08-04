@@ -6,7 +6,7 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 17:55:27 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/27 19:09:45 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:16:22 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t a;
+	size_t	a;
 
 	a = 0;
 	if (!dst || !src)

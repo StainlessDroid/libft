@@ -6,7 +6,7 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 15:13:50 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/23 16:29:52 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:13:05 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strdup(const char *src)
 
 	i = 0;
 	l = ft_strlen(src);
-	if (!(ptr = malloc(l + 1)))
+	ptr = malloc(l + 1);
+	if (ptr == NULL)
 		return (NULL);
 	else
 	{

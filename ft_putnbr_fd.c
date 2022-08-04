@@ -6,7 +6,7 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 18:48:18 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/25 18:50:49 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:19:45 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	int		a;
+	long int	a;
 
 	a = n;
 	if (a < 0)

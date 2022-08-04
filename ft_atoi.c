@@ -6,13 +6,13 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:19:51 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/19 15:44:42 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:20:04 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int			ft_len(const char *str)
+static unsigned int	ft_len(const char *str)
 {
-	unsigned int l;
+	unsigned int	l;
 
 	l = 0;
 	while (*str >= '0' && *str <= '9')
@@ -26,8 +26,8 @@ static unsigned int			ft_len(const char *str)
 
 static unsigned long int	ft_expo(int n)
 {
-	int i;
-	int x;
+	int	i;
+	int	x;
 
 	x = 1;
 	i = n;
@@ -39,7 +39,7 @@ static unsigned long int	ft_expo(int n)
 	return (x);
 }
 
-int							ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	len;
 	unsigned long	nbr;

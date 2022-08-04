@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 17:34:21 by mpascual          #+#    #+#             */
-/*   Updated: 2020/03/08 20:09:55 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:31:06 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putstr(const char *str)
 {
-	unsigned long l;
+	unsigned long	l;
 
 	l = 0;
 	while (str[l])

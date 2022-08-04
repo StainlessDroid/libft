@@ -6,15 +6,15 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 19:54:54 by manu              #+#    #+#             */
-/*   Updated: 2020/11/16 00:07:19 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:18:35 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
-	long	int		num;
+	long int		num;
 	unsigned int	len;
 
 	num = nb;

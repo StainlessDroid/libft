@@ -6,13 +6,13 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 17:47:25 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/27 15:50:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:41:25 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		count_str(char const *s1, char c)
+static int	count_str(char const *s1, char c)
 {
 	int	comp;
 	int	cles;
@@ -35,7 +35,7 @@ static int		count_str(char const *s1, char c)
 	return (comp);
 }
 
-static int		numchar(char const *s2, char c, int i)
+static int	numchar(char const *s2, char c, int i)
 {
 	int	lenght;
 
@@ -48,7 +48,7 @@ static int		numchar(char const *s2, char c, int i)
 	return (lenght);
 }
 
-static char		**resp(char const *s, char **dst, char c, int l)
+static char	**resp(char const *s, char **dst, char c, int l)
 {
 	int	i;
 	int	y;
@@ -61,7 +61,8 @@ static char		**resp(char const *s, char **dst, char c, int l)
 		k = 0;
 		while (s[i] == c)
 			i++;
-		if (!(dst[y] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1)))
+		dst[y] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1);
+		if (dst[y] == NULL)
 			return (0);
 		while (s[i] != '\0' && s[i] != c)
 			dst[y][k++] = s[i++];
@@ -72,7 +73,7 @@ static char		**resp(char const *s, char **dst, char c, int l)
 	return (dst);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	int		n;
@@ -80,7 +81,8 @@ char			**ft_split(char const *s, char c)
 	if (s == 0)
 		return (0);
 	n = count_str(s, c);
-	if (!(dst = (char **)malloc(sizeof(char *) * (n + 1))))
+	dst = (char **)malloc(sizeof(char *) * (n + 1));
+	if (dst == NULL)
 		return (0);
 	return (resp(s, dst, c, n));
 }

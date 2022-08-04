@@ -6,7 +6,7 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 18:11:43 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/27 19:11:50 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:23:34 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
-	else if (!(sub = malloc(len + 1)))
+	sub = malloc(len + 1);
+	if (sub == NULL)
 		return (NULL);
 	else
 	{

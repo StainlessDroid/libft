@@ -6,13 +6,13 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:24:38 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/27 18:24:54 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:53:40 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 

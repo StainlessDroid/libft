@@ -6,7 +6,7 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 19:17:27 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/23 20:06:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:14:28 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	i2 = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	else if (!(nstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+	nstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (nstr == NULL)
 		return (NULL);
 	else
 	{

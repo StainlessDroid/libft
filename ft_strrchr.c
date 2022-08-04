@@ -6,13 +6,13 @@
 /*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:46:58 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/24 21:13:27 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:17:43 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	unsigned int	stop;
 
@@ -24,5 +24,5 @@ char		*ft_strrchr(const char *s, int c)
 			return (NULL);
 		s--;
 	}
-	return ((char*)s);
+	return ((char *)s);
 }
