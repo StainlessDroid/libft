@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:30:11 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 03:17:24 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/09/24 23:17:48 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "ft_printf.h"
 
-int				put_u(unsigned int nb, int len, t_var *var)
+int	put_u(unsigned int nb, int len, t_var *var)
 {
 	if (var->is_precision && !var->precision)
 		return (0);
@@ -28,7 +28,7 @@ int				put_u(unsigned int nb, int len, t_var *var)
 	return (0);
 }
 
-void			print_u(unsigned int nb, t_var *var)
+void	print_u(unsigned int nb, t_var *var)
 {
 	int		len;
 	int		pre_printed;
@@ -45,23 +45,23 @@ void			print_u(unsigned int nb, t_var *var)
 			var->printed_chars += ft_putchar(' ');
 		var->width--;
 	}
-	if (var->minus == FALSE)
+	if (var->minus == false)
 		put_u(nb, len, var);
 }
 
-int				minus(t_var *var)
+int	minus(t_var *var)
 {
 	int	i;
 
 	i = 1;
-	var->zero = FALSE;
-	var->minus = TRUE;
+	var->zero = false;
+	var->minus = true;
 	return (i);
 }
 
-void			ft_putnbr(int nb, t_var *var)
+void	ft_putnbr(int nb, t_var *var)
 {
-	long	int		num;
+	long int	num;
 
 	num = nb;
 	if (num < 0)
@@ -80,7 +80,7 @@ void			ft_putnbr(int nb, t_var *var)
 		var->printed_chars += ft_putchar(num + '0');
 }
 
-void			ft_putnbr_u(unsigned int nb, t_var *var)
+void	ft_putnbr_u(unsigned int nb, t_var *var)
 {
 	unsigned int	num;
 

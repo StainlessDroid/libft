@@ -6,24 +6,24 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/15 20:26:42 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/09/24 23:21:43 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "ft_printf.h"
 
-void		init_flags(t_var *var)
+void	init_flags(t_var *var)
 {
 	var->precision = 0;
 	var->width = 0;
 	var->format_pos = 0;
-	var->minus = FALSE;
-	var->zero = FALSE;
-	var->is_precision = FALSE;
-	var->nb_neg = FALSE;
+	var->minus = false;
+	var->zero = false;
+	var->is_precision = false;
+	var->nb_neg = false;
 }
 
-int			star(t_var *var, va_list arg)
+int	star(t_var *var, va_list arg)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int			star(t_var *var, va_list arg)
 	return (i);
 }
 
-int			is_type(char c)
+int	is_type(char c)
 {
 	if (c == 'c' || c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
 		|| c == 'X' || c == 'p' || c == '%')
@@ -46,7 +46,7 @@ int			is_type(char c)
 		return (0);
 }
 
-int			get_number(const char *str)
+int	get_number(const char *str)
 {
 	int			i;
 	int			len;
@@ -57,7 +57,8 @@ int			get_number(const char *str)
 	len = 0;
 	while (ft_isdigit(str[len]))
 		len++;
-	if (!(number = malloc(len + 1)))
+	number = malloc(len +1);
+	if (number == NULL)
 		return (-1);
 	i = 0;
 	while (len > 0)
@@ -77,12 +78,15 @@ int			get_number(const char *str)
 ** characters of the hex number are mayus
 */
 
-void		ft_itohex(unsigned long nb, t_bool mayus, t_var *var)
+void	ft_itohex(unsigned long nb, bool mayus, t_var *var)
 {
 	unsigned long	num;
 	int				a;
 
-	a = mayus ? 55 : 87;
+	if (mayus)
+		a = 55;
+	else
+		a = 87;
 	num = nb;
 	if (num >= 16)
 	{

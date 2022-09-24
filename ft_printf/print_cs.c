@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 12:16:57 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/09/24 23:16:18 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "ft_printf.h"
 
-int		print_c(char c, t_var *var)
+int	print_c(char c, t_var *var)
 {
 	int		n_printed;
 
@@ -27,12 +27,12 @@ int		print_c(char c, t_var *var)
 			n_printed += ft_putchar(' ');
 		var->width--;
 	}
-	if (var->minus == FALSE)
+	if (var->minus == false)
 		n_printed += ft_putchar(c);
 	return (n_printed);
 }
 
-int		print_s(char *str, t_var *var)
+int	print_s(char *str, t_var *var)
 {
 	int		n_printed;
 	int		len;
@@ -53,7 +53,7 @@ int		print_s(char *str, t_var *var)
 			n_printed += ft_putchar(' ');
 		var->width--;
 	}
-	if (var->minus == FALSE)
+	if (var->minus == false)
 		n_printed += write(1, str, len);
 	return (n_printed);
 }

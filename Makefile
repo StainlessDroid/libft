@@ -6,7 +6,7 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 20:46:54 by mpascual          #+#    #+#              #
-#    Updated: 2022/09/24 21:50:21 by mpascual         ###   ########.fr        #
+#    Updated: 2022/09/24 23:11:39 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,14 @@ SRC_FILES	= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			  ft_strnstr.c ft_strrchr.c \
 			  ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 			  ft_putchar.c ft_putstr.c \
-			  ft_itoa.c ft_nbrlen.c ft_putnbr.c get_next_line.c
+			  ft_itoa.c ft_nbrlen.c ft_putnbr.c get_next_line.c \
+			  ft_printf/ft_printf.c ft_printf/utils.c ft_printf/print_u.c \
+			  ft_printf/print_cs.c ft_printf/print_di.c ft_printf/print_xp.c
 BONUS_SRC	= $(SRC_FILES) ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 			  ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
 			  ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
 			  ft_lstsize_bonus.c
-HEADER		= libft.h
+HEADERS		= libft.h ft_printf/ft_printf.h
 
 ifdef WITH_BONUS
 	SRC = $(SRC_FILES) $(BONUS_SRC)
@@ -56,13 +58,14 @@ OBJ :
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
-	@echo "$(GREEN)$(NAME) created ✓${CLR_RMV}"
+	@echo "$(GREEN)$(NAME) created successfully ✓${CLR_RMV}"
 
 bonus :
 	$(MAKE) WITH_BONUS=1 all
 
 clean:
 	rm -f $(OBJ)
+	rm -f $(subst .c,.o,$(BONUS_SRC))
 
 fclean: clean
 	rm -f $(NAME)
