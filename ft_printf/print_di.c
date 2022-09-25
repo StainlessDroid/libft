@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:29:35 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:16:59 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:23:05 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	put_di(int nb, int len, t_var *var)
 		var->precision--;
 	}
 	if (nb != -2147483648)
-		ft_putnbr(nb, var);
+		ft_printnbr(nb, var);
 	else
 		var->printed_chars += write(1, "2147483648", 10);
 	return (0);

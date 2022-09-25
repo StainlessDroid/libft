@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:30:11 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:17:48 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:22:33 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	put_u(unsigned int nb, int len, t_var *var)
 		var->precision--;
 	}
 	if (nb != 4294959296)
-		ft_putnbr_u(nb, var);
+		ft_printnbr_u(nb, var);
 	else
 		var->printed_chars += write(1, "4294959296", 10);
 	return (0);
@@ -59,7 +59,7 @@ int	minus(t_var *var)
 	return (i);
 }
 
-void	ft_putnbr(int nb, t_var *var)
+void	ft_printnbr(int nb, t_var *var)
 {
 	long int	num;
 
@@ -72,7 +72,7 @@ void	ft_putnbr(int nb, t_var *var)
 	}
 	if (num >= 10)
 	{
-		ft_putnbr(num / 10, var);
+		ft_printnbr(num / 10, var);
 		ft_putchar(num % 10 + '0');
 		var->printed_chars++;
 	}
@@ -80,14 +80,14 @@ void	ft_putnbr(int nb, t_var *var)
 		var->printed_chars += ft_putchar(num + '0');
 }
 
-void	ft_putnbr_u(unsigned int nb, t_var *var)
+void	ft_printnbr_u(unsigned int nb, t_var *var)
 {
 	unsigned int	num;
 
 	num = nb;
 	if (num >= 10)
 	{
-		ft_putnbr(num / 10, var);
+		ft_printnbr(num / 10, var);
 		ft_putchar(num % 10 + '0');
 		var->printed_chars++;
 	}

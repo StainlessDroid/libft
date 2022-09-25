@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:15:24 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:20:30 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int					get_number(const char *str);
 int					get_precision(const char *format, va_list arg, t_var *var);
 int					minus(t_var *var);
 int					star(t_var *var, va_list arg);
-void				ft_putnbr(int nb, t_var *var);
-void				ft_putnbr_u(unsigned int nb, t_var *var);
+void				ft_printnbr(int nb, t_var *var);
+void				ft_printnbr_u(unsigned int nb, t_var *var);
 
 #endif
