@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:19:51 by mpascual          #+#    #+#             */
-/*   Updated: 2023/01/23 20:40:45 by mpascual         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:20:04 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,10 @@ static unsigned long int	ft_expo(int n)
 	return (x);
 }
 
-int	aux_ret(unsigned int nbr, unsigned int neg)
-{
-	if (nbr > __INT_MAX__)
-		return (-1);
-	if (neg > 0)
-		return (nbr *= -1);
-	else
-		return (nbr);
-}
-
 int	ft_atoi(const char *str)
 {
 	unsigned int	len;
-	unsigned int	nbr;
+	unsigned long	nbr;
 	unsigned int	neg;
 
 	nbr = 0;
@@ -72,5 +62,8 @@ int	ft_atoi(const char *str)
 		len--;
 		str++;
 	}
-	return (aux_ret(nbr, neg));
+	if (neg == 1)
+		return (nbr * -1);
+	else
+		return (nbr);
 }
