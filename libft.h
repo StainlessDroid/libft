@@ -77,6 +77,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 char			*ft_strcpy(char *dst, const char *src);
 int				ft_putchar(char c);
 unsigned int	ft_nbrlen(long nb, int base_len);
+int			ft_atoi_base(const char *str, int base);
 int				get_next_line(const int fd, char **line);
 
 #endif
