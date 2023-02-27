@@ -34,7 +34,8 @@ SRC_FILES	= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			  ft_putchar.c ft_putstr.c \
 			  ft_itoa.c ft_nbrlen.c ft_putnbr.c get_next_line.c \
 			  ft_printf/ft_printf.c ft_printf/utils.c ft_printf/print_u.c \
-			  ft_printf/print_cs.c ft_printf/print_di.c ft_printf/print_xp.c
+			  ft_printf/print_cs.c ft_printf/print_di.c ft_printf/print_xp.c\
+			  ft_atoi_base.c
 BONUS_SRC	= $(SRC_FILES) ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 			  ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
 			  ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
