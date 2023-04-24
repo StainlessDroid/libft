@@ -18,8 +18,9 @@
 # include <stdbool.h>
 # include "ft_printf/ft_printf.h"
 
+/* Set the byte size block for the reading of files in get_next_line() */
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 256
 # endif
 
 typedef struct s_list
@@ -79,5 +80,6 @@ int				ft_putchar(char c);
 unsigned int	ft_nbrlen(long nb, int base_len);
 int			ft_atoi_base(const char *str, int base);
 int				get_next_line(const int fd, char **line);
+void			*ft_realloc(void *ptr, size_t size);
 
 #endif
