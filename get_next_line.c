@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 10:55:42 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:24:08 by mpascual         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:45:42 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	get_next_line(int fd, char **line)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || line == NULL)
 		return (-1);
-	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	ret = read(fd, buf, BUFFER_SIZE);
+	while (ret > 0)
 	{
 		buf[ret] = '\0';
 		if (s[fd] == NULL)
@@ -78,6 +79,7 @@ int	get_next_line(int fd, char **line)
 		}
 		if (ft_strchr(s[fd], '\n'))
 			break ;
+		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	return (output(ret, fd, s, line));
 }

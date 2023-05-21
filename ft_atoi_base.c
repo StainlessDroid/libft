@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:46:03 by mpascual          #+#    #+#             */
-/*   Updated: 2023/02/27 21:04:35 by mpascual         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:28:11 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_digit(const char c)
+int	get_digit(const char c)
 {
 	int		nb;
 
@@ -27,15 +27,15 @@ int		get_digit(const char c)
 	return (nb);
 }
 
-int		ft_atoi_base(const char *str, int str_base)
+int	ft_atoi_base(const char *str, int str_base)
 {
 	int		nbr;
 	int		neg;
 	int		current;
 
 	nbr = 0;
-    neg = 0;
-    while ((*str >= 9 && *str <= 13) || *str == 32)
+	neg = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	while (*str == '+' || *str == '-')
 	{
@@ -50,8 +50,8 @@ int		ft_atoi_base(const char *str, int str_base)
 		str++;
 		current = get_digit(*str);
 	}
-    if (neg)
-        return (nbr * -1);
-    else
-	    return (nbr);
+	if (neg)
+		return (nbr * -1);
+	else
+		return (nbr);
 }
