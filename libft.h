@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/25 12:17:21 by mpascual         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:11:02 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 char			*ft_strcpy(char *dst, const char *src);
 int				ft_putchar(char c);
 unsigned int	ft_nbrlen(long nb, int base_len);
-int			ft_atoi_base(const char *str, int base);
+int				ft_atoi_base(const char *str, int base);
 int				get_next_line(const int fd, char **line);
-void			*ft_realloc(void *ptr, size_t size);
+void			*ft_realloc(void *src, size_t old_len, size_t new_len);
 
 #endif
