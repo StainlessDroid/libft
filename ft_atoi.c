@@ -3,67 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 10:19:51 by mpascual          #+#    #+#             */
-/*   Updated: 2022/08/04 16:20:04 by mpascual         ###   ########.fr       */
+/*   Created: 2025/05/02 10:51:46 by mapascua          #+#    #+#             */
+/*   Updated: 2025/05/02 10:51:50 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_len(const char *str)
-{
-	unsigned int	l;
-
-	l = 0;
-	while (*str >= '0' && *str <= '9')
-	{
-		l++;
-		str++;
-	}
-	l--;
-	return (l);
-}
-
-static unsigned long int	ft_expo(int n)
-{
-	int	i;
-	int	x;
-
-	x = 1;
-	i = n;
-	while (i > 0)
-	{
-		x *= 10;
-		i--;
-	}
-	return (x);
-}
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-	unsigned int	len;
-	unsigned long	nbr;
-	unsigned int	neg;
+	int	sign;
+	int	result;
 
-	nbr = 0;
-	neg = 0;
+	result = 0;
+	sign = 1;
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
-	if (*str == '+' || *str == '-')
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
 	{
-		if (*str == '-')
-			neg = 1;
+		sign = -1;
 		str++;
 	}
-	len = ft_len(str);
-	while (*str >= '0' && *str <= '9')
+	while (ft_isdigit(*str))
 	{
-		nbr += (*str - '0') * ft_expo(len);
-		len--;
+		result *= 10;
+		result += *str - '0';
 		str++;
 	}
-	if (neg == 1)
-		return (nbr * -1);
-	else
-		return (nbr);
+	return (result * sign);
 }

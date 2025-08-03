@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 20:11:44 by mpascual          #+#    #+#             */
-/*   Updated: 2023/05/23 16:15:46 by mpascual         ###   ########.fr       */
+/*   Created: 2025/06/21 13:16:16 by mapascua          #+#    #+#             */
+/*   Updated: 2025/07/10 21:33:24 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
+# include "../libft.h"
 
-void	*ft_realloc(void *src, size_t old_len, size_t new_len)
-{
-	void	*res;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	res = malloc(new_len);
-	ft_memcpy(res, src, old_len);
-	if (src)
-		free (src);
-	return (res);
-}
+char	*get_next_line(int fd);
+char	*ft_strjoin_mod(char *s1, char *s2);
+char	*ft_substr_mod(char *s, int len);
 
+#endif

@@ -31,8 +31,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 		return (ft_strdup(""));
 	while (ft_strchr(set, (int)s1[end]) && end > 0)
 		end--;
-	len = 1 + end - start;
-	nstr = (char *)malloc(len + 1);
+	len = end - start + 1;
+	nstr = malloc(sizeof(char) * len + 1);
 	if (nstr == NULL)
 		return (NULL);
 	while (i < len)

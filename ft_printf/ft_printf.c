@@ -3,135 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:14:05 by mpascual         ###   ########.fr       */
+/*   Created: 2025/07/04 16:11:08 by mapascua          #+#    #+#             */
+/*   Updated: 2025/07/04 16:11:12 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	get_precision(const char *format, va_list arg, t_var *var)
+int	check_type(const char c, va_list arg)
 {
-	int		i;
+	int	printed_chars;
 
-	i = 1;
-	if (*format == '*')
-	{
-		var->precision = va_arg(arg, int);
-		i++;
-	}
-	else
-	{
-		if (!ft_isdigit(*format))
-			var->precision = 0;
-		else
-		{
-			var->precision = get_number(format);
-			while (ft_isdigit(*format++))
-				i++;
-		}
-	}
-	var->is_precision = true;
-	if (var->precision < 0)
-		var->is_precision = false;
-	return (i);
-}
-
-int	digit_flags(const char *format, t_var *var)
-{
-	int	i;
-
-	i = 0;
-	while (*format && ft_isdigit(*format))
-	{
-		if (*format == '0')
-		{
-			if (!var->minus)
-				var->zero = true;
-			format++;
-			i++;
-		}
-		else
-		{
-			var->width = get_number(format++);
-			i += ft_nbrlen(var->width, 10);
-			break ;
-		}
-	}
-	return (i);
-}
-
-int	find_flags(const char *format, va_list arg, t_var *var)
-{
-	int	i;
-
-	i = 0;
-	while (!is_type(*format))
-	{
-		if (*format == '-')
-			var->format_pos += minus(var);
-		else if (*format == '*')
-			var->format_pos += star(var, arg);
-		else if (*format == '.')
-			var->format_pos += get_precision(++format, arg, var);
-		else if (ft_isdigit(*format))
-			var->format_pos += digit_flags(format, var);
-		else
-			break ;
-		format += var->format_pos;
-		i += var->format_pos;
-		var->format_pos = 0;
-	}
-	return (i);
-}
-
-void	check_type(const char c, va_list arg, t_var *var)
-{
+	printed_chars = 0;
 	if (c == 'c')
-		var->printed_chars += print_c(va_arg(arg, int), var);
+		printed_chars += ft_putchar(va_arg(arg, int));
 	else if (c == 's')
-		var->printed_chars += print_s(va_arg(arg, char *), var);
+		printed_chars += print_s(va_arg(arg, char *));
 	else if (c == 'd' || c == 'i')
-		print_di(va_arg(arg, int), var);
+		printed_chars += print_di(va_arg(arg, int));
 	else if (c == 'u')
-		print_u(va_arg(arg, unsigned int), var);
+		printed_chars += print_u(va_arg(arg, unsigned int));
 	else if (c == 'p')
-		print_p(va_arg(arg, unsigned long), var);
+		printed_chars += print_p(va_arg(arg, unsigned long));
 	else if (c == 'x')
-		print_x(va_arg(arg, unsigned int), false, var);
+		printed_chars += print_x(va_arg(arg, unsigned int), false);
 	else if (c == 'X')
-		print_x(va_arg(arg, unsigned int), true, var);
+		printed_chars += print_x(va_arg(arg, unsigned int), true);
 	else if (c == '%')
-		var->printed_chars += print_c('%', var);
+		printed_chars += ft_putchar('%');
+	return (printed_chars);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list		arg;
-	t_var		*var;
-	int			n_printed;
+	int			printed_chars;
 
-	if (!(var = malloc(sizeof(t_var) + 1)))
-		return (-1);
-	var->printed_chars = 0;
+	printed_chars = 0;
 	va_start(arg, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			init_flags(var);
-			format += find_flags(format, arg, var);
-			check_type(*format, arg, var);
+			printed_chars += check_type(*format, arg);
 		}
 		else
-			var->printed_chars += ft_putchar(*format);
+			printed_chars += ft_putchar(*format);
 		format++;
 	}
-	n_printed = var->printed_chars;
 	va_end(arg);
-	free(var);
-	return (n_printed);
+	return (printed_chars);
 }

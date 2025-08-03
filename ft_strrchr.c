@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 16:46:58 by mpascual          #+#    #+#             */
-/*   Updated: 2022/08/04 17:17:43 by mpascual         ###   ########.fr       */
+/*   Created: 2025/05/01 21:39:12 by mapascua          #+#    #+#             */
+/*   Updated: 2025/05/01 21:39:15 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	stop = ft_strlen(s);
 	s += ft_strlen(s);
-	while (*s != c)
+	while (*s != (unsigned char)c)
 	{
 		if (stop-- == 0)
 			return (NULL);

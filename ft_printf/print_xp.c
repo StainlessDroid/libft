@@ -3,70 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   print_xp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:18:08 by mpascual         ###   ########.fr       */
+/*   Created: 2025/07/04 16:12:04 by mapascua          #+#    #+#             */
+/*   Updated: 2025/07/04 16:12:05 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	put_x(unsigned int nb, int len, bool mayus, t_var *var)
+int	ft_putnbr_hex(unsigned long nb, bool mayus)
+/*
+** requires a boolean parameter to specify if the alphabetic
+** characters of the number are mayus
+*/
 {
-	if (var->is_precision && var->precision == 0)
-		return (0);
-	while (var->precision > len)
+	int		a;
+	int		printed_chars;
+
+	a = 87;
+	printed_chars = 0;
+	if (mayus)
+		a = 55;
+	if (nb >= 16)
 	{
-		var->printed_chars += ft_putchar('0');
-		var->precision--;
+		printed_chars += ft_putnbr_hex(nb / 16, mayus);
+		if (nb % 16 > 9)
+			printed_chars += ft_putchar(nb % 16 + a);
+		else
+			printed_chars += ft_putchar(nb % 16 + '0');
 	}
-	ft_itohex(nb, mayus, var);
-	return (0);
+	else
+	{
+		if (nb % 16 > 9)
+			printed_chars += ft_putchar(nb + a);
+		else
+			printed_chars += ft_putchar(nb + '0');
+	}
+	return (printed_chars);
 }
 
-void	print_x(unsigned int nb, bool mayus, t_var *var)
+int	print_x(unsigned int nb, bool mayus)
 {
-	int		len;
-	int		pre_printed;
+	int		printed_chars;
 
-	len = (var->is_precision && !var->precision) ? 0 : ft_nbrlen(nb, 16);
-	pre_printed = (var->precision > len) ? (var->precision - len) : 0;
-	if (var->minus)
-		put_x(nb, len, mayus, var);
-	while (var->width > (len + pre_printed))
-	{
-		if (var->zero && !var->is_precision)
-			var->printed_chars += ft_putchar('0');
-		else
-			var->printed_chars += ft_putchar(' ');
-		var->width--;
-	}
-	if (var->minus == false)
-		put_x(nb, len, mayus, var);
+	printed_chars = ft_nbrlen(nb, 16);
+	ft_putnbr_hex(nb, mayus);
+	return (printed_chars);
 }
 
-void	print_p(unsigned long nb, t_var *var)
+int	print_p(unsigned long nb)
 {
-	int		len;
+	int		printed_chars;
 
-	len = ft_nbrlen(nb, 16) + 2;
-	if (var->minus)
-	{
-		var->printed_chars += ft_putstr("0x");
-		ft_itohex(nb, false, var);
-	}
-	while (var->width > len)
-	{
-		if (var->zero && !var->is_precision)
-			var->printed_chars += ft_putchar('0');
-		else
-			var->printed_chars += ft_putchar(' ');
-		var->width--;
-	}
-	if (var->minus == false)
-	{
-		var->printed_chars += ft_putstr("0x");
-		ft_itohex(nb, false, var);
-	}
+	printed_chars = 0;
+	if (nb == 0)
+		return (ft_putstr("(nil)"));
+	printed_chars += ft_putstr("0x");
+	printed_chars += ft_putnbr_hex(nb, false);
+	return (printed_chars);
 }

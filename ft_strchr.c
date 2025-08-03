@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 12:38:22 by mpascual          #+#    #+#             */
-/*   Updated: 2022/08/04 17:12:01 by mpascual         ###   ########.fr       */
+/*   Created: 2025/05/01 21:35:42 by mapascua          #+#    #+#             */
+/*   Updated: 2025/05/01 21:35:47 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	str = (char *)s;
-	while (*str != c)
+	while (*str != (unsigned char)c)
 	{
 		if (*str == '\0')
 			return (NULL);

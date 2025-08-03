@@ -10,23 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *src)
 {
 	unsigned int	i;
-	unsigned int	l;
 	char			*ptr;
 
 	i = 0;
-	l = ft_strlen(src);
-	ptr = malloc(l + 1);
+	ptr = malloc(ft_strlen(src) + 1);
 	if (ptr == NULL)
 		return (NULL);
 	else
 	{
-		while (src[i] != 0)
+		while (src[i])
 		{
 			ptr[i] = src[i];
 			i++;

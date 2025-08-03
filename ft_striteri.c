@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/27 15:15:04 by mpascual          #+#    #+#             */
-/*   Updated: 2019/11/27 15:17:09 by mpascual         ###   ########.fr       */
+/*   Created: 2025/05/01 23:01:09 by mapascua          #+#    #+#             */
+/*   Updated: 2025/05/02 00:30:47 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (s[i])
 	{
-		dst[i] = ((char *)src)[i];
+		f(i, &s[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
 }

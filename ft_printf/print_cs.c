@@ -3,57 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   print_cs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/24 23:16:18 by mpascual         ###   ########.fr       */
+/*   Created: 2025/07/04 16:11:40 by mapascua          #+#    #+#             */
+/*   Updated: 2025/07/04 16:11:42 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_c(char c, t_var *var)
+int	ft_putchar(char c)
 {
-	int		n_printed;
-
-	n_printed = 0;
-	if (var->minus)
-		n_printed += ft_putchar(c);
-	while (var->width > 1)
-	{
-		if (var->zero)
-			n_printed += ft_putchar('0');
-		else
-			n_printed += ft_putchar(' ');
-		var->width--;
-	}
-	if (var->minus == false)
-		n_printed += ft_putchar(c);
-	return (n_printed);
+	write(1, &c, 1);
+	return (1);
 }
 
-int	print_s(char *str, t_var *var)
+int	ft_putstr(const char *str)
 {
-	int		n_printed;
-	int		len;
+	return (write(1, str, ft_strlen(str)));
+}
+
+int	print_s(char *str)
+{
+	int		printed_chars;
 
 	if (!str)
 		str = "(null)";
-	n_printed = 0;
-	len = (var->is_precision && !var->precision) ? 0 : ft_strlen(str);
-	if (var->is_precision && var->precision <= len)
-		len = var->precision;
-	if (var->minus)
-		n_printed += write(1, str, len);
-	while (var->width > len)
-	{
-		if (var->zero)
-			n_printed += ft_putchar('0');
-		else
-			n_printed += ft_putchar(' ');
-		var->width--;
-	}
-	if (var->minus == false)
-		n_printed += write(1, str, len);
-	return (n_printed);
+	printed_chars = ft_putstr(str);
+	return (printed_chars);
 }

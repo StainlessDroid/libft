@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 20:46:49 by mpascual          #+#    #+#             */
-/*   Updated: 2022/08/04 17:09:18 by mpascual         ###   ########.fr       */
+/*   Created: 2025/05/01 15:30:02 by mapascua          #+#    #+#             */
+/*   Updated: 2025/05/01 15:30:05 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)

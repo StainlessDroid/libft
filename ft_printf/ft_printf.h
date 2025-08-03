@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mapascua <mapascua@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2022/09/25 12:20:30 by mpascual         ###   ########.fr       */
+/*   Created: 2025/07/04 16:11:21 by mapascua          #+#    #+#             */
+/*   Updated: 2025/07/04 16:11:24 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,17 @@
 # include "../libft.h"
 # include <stdarg.h>
 
-typedef struct s_var
-{
-	int				printed_chars;
-	int				width;
-	int				precision;
-	unsigned int	format_pos;
-	bool			zero;
-	bool			minus;
-	bool			is_precision;
-	bool			nb_neg;
-}					t_var;
-
-int					ft_printf(const char *format, ...);
-void				init_flags(t_var *var);
-int					mod_putchar(char c);
-int					is_type(char c);
-int					find_flags(const char *format, va_list arg, t_var *var);
-void				check_type(const char c, va_list arg, t_var *var);
-int					print_c(char c, t_var *var);
-int					print_s(char *str, t_var *var);
-void				print_di(int nb, t_var *var);
-void				print_u(unsigned int nb, t_var *var);
-void				print_p(unsigned long ptr, t_var *var);
-void				print_x(unsigned int nb, bool mayus, t_var *var);
-void				ft_itohex(unsigned long nb, bool mayus, t_var *var);
-int					get_number(const char *str);
-int					get_precision(const char *format, va_list arg, t_var *var);
-int					minus(t_var *var);
-int					star(t_var *var, va_list arg);
-void				ft_printnbr(int nb, t_var *var);
-void				ft_printnbr_u(unsigned int nb, t_var *var);
+int				ft_printf(const char *format, ...);
+int				ft_putchar(char c);
+int				ft_putstr(const char *str);
+int				check_type(const char c, va_list arg);
+int				print_s(char *str);
+unsigned int	ft_nbrlen(long nb, int base_len);
+int				print_di(int nb);
+int				print_u(unsigned int nb);
+int				print_p(unsigned long ptr);
+int				print_x(unsigned int nb, bool mayus);
+int				ft_putnbr_hex(unsigned long nb, bool mayus);
+int				ft_putnbr_u(unsigned int nb);
 
 #endif
