@@ -99,7 +99,6 @@ char	*ft_clean_static(char *res)
 	return (save);
 }
 
-
 char	*get_next_line(int fd)
 /*	Reads a line from a given file and returns it as an allocated char pointer
 	Call on loop for reading the file until the end */
