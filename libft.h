@@ -76,5 +76,6 @@ long		ft_atol(const char *str);
 int			ft_atoi_base(const char *str, int str_base);
 char		*get_next_line(int fd);
 int			ft_printf(const char *format, ...);
+void		*ft_realloc(void *src, size_t old_len, size_t new_len);
 
 #endif
