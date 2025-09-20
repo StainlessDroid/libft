@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2025/08/20 11:39:39 by mapascua         ###   ########.fr       */
+/*   Updated: 2025/09/20 12:42:31 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
 char		*ft_strjoin(const char *s1, const char *s2);
+char		*ft_strjoin_chain(size_t count, ...);
 char		*ft_strtrim(const char *s1, const char *set);
 char		**ft_split(const char *s, char c);
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
