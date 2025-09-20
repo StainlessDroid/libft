@@ -6,16 +6,16 @@
 /*   By: mapascua <mapascua@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 15:24:08 by mapascua          #+#    #+#             */
-/*   Updated: 2025/09/20 16:03:10 by mapascua         ###   ########.fr       */
+/*   Updated: 2025/09/20 18:15:31 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdarg.h>
 
-static void	free_double_pointer(void **double_p)
+static void	free_null_terminated_double_ptr(void **double_p)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (double_p)
@@ -29,50 +29,70 @@ static void	free_double_pointer(void **double_p)
 	}
 }
 
-static void	free_triple_pointer(void ***triple_p)
+static void	free_fix_lenght_double_ptr(void **double_p, int size)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+
+	i = 0;
+	if (double_p)
+	{
+		while (i < size)
+		{
+			free(double_p[i]);
+			i++;
+		}
+		free(double_p);
+	}
+}
+
+static void	free_null_terminated_triple_ptr(void ***triple_p)
+{
+	int	i;
 
 	i = 0;
 	if (triple_p)
 	{
 		while (triple_p[i])
 		{
-			j = 0;
-			while (triple_p[i][j])
-			{
-				free(triple_p[i][j]);
-				j++;
-			}
-			free(triple_p[i]);
+			free_null_terminated_double_ptr(triple_p[i]);
 			i++;
 		}
 		free(triple_p);
 	}
 }
 
+/*
+ * Use the format specifier string to indicate the type and number 
+ * of pointers to free:
+ *   's' -> single pointer (void *)
+ *   'd' -> double pointer, NULL-terminated (void **)
+ *   'D' -> double pointer with length (requires extra size_t argument)
+ *   't' -> triple pointer, NULL-terminated (void ***)
+*/
 void	ft_free(const char *format, ...)
 {
-	size_t	i;
+	void	*ptr;
 	va_list	args;
 
-	i = 0;
 	va_start(args, format);
-	if (!format)
+	while (format && *format)
 	{
-		va_end(args);
-		return ;
-	}
-	while (format[i])
-	{
-		if (format[i] == 's')
+		if (*format == 's')
 			free(va_arg(args, void *));
-		else if (format[i] == 'd')
-			free_double_pointer(va_arg(args, void **));
-		else if (format[i] == 't')
-			free_triple_pointer(va_arg(args, void ***));
-		i++;
+		else if (*format == 'd')
+		{
+			ptr = va_arg(args, void **);
+			free_null_terminated_double_ptr(ptr);
+		}
+		else if (*format == 'D')
+		{
+			ptr = va_arg(args, void **);
+			free_fix_lenght_double_ptr(ptr, va_arg(args, int));
+		}
+		else if (*format == 't')
+			free_null_terminated_triple_ptr(va_arg(args, void ***));
+		ptr = NULL;
+		format++;
 	}
 	va_end(args);
 }
