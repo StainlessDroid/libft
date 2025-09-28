@@ -6,7 +6,7 @@
 /*   By: mapascua <mapascua@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 15:24:08 by mapascua          #+#    #+#             */
-/*   Updated: 2025/09/20 18:15:31 by mapascua         ###   ########.fr       */
+/*   Updated: 2025/09/28 13:21:03 by mapascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,10 @@ void	ft_free(const char *format, ...)
 			free_fix_lenght_double_ptr(ptr, va_arg(args, int));
 		}
 		else if (*format == 't')
-			free_null_terminated_triple_ptr(va_arg(args, void ***));
+		{
+			ptr = va_arg(args, void ***);
+			free_null_terminated_triple_ptr(ptr);
+		}
 		ptr = NULL;
 		format++;
 	}
